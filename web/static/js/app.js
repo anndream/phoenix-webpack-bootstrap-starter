@@ -19,3 +19,9 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+const project = 'Myproject';
+
+setTimeout(() => {
+  console.log(`Hello from ${project}!`);
+}, 1000);
