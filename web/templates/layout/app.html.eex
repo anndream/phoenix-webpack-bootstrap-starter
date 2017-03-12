@@ -8,28 +8,42 @@
     <meta name="author" content="">
 
     <title>Hello Myproject!</title>
-    <!-- <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>"> -->
+    <link rel="stylesheet" href="<%= static_path(@conn, "/dist/app.css") %>">
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+    <nav class="navbar navbar-toggleable-sm navbar-inverse bg-primary mb-3">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <%= link "Myproject", to: page_path(@conn, :index), class: "navbar-brand" %>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li><a href="/" class="nav-link">Button</a></li>
           </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
-
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <%= show_flash(@conn) %>
       <main role="main">
-        <%= render @view_module, @view_template, assigns %>
+        <div class="jumbotron text-center">
+          <h2>Welcome to Myproject!</h2>
+          <p class="lead">Give me all of your monies pls</p>
+        </div>
+        <h3>Application colors</h3>
+        <div class="mt-3 d-flex flex-wrap justify-content-center align-items-center">
+          <button type="button" class="btn m-3 btn-primary">Primary</button>
+          <button type="button" class="btn m-3 btn-secondary">Secondary</button>
+          <button type="button" class="btn m-3 btn-success">Success</button>
+          <button type="button" class="btn m-3 btn-info">Info</button>
+          <button type="button" class="btn m-3 btn-warning">Warning</button>
+          <button type="button" class="btn m-3 btn-danger">Danger</button>
+          <button type="button" class="btn m-3 btn-link">Link</button>
+        </div>
       </main>
-
-    </div> <!-- /container -->
+    </div>
     <script src="<%= static_path(@conn, "/dist/app.js") %>"></script>
   </body>
 </html>
