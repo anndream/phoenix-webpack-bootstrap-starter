@@ -455,3 +455,31 @@ $(".alert").alert();
 ```
 
 Now, when we reload http://localhost:4000/, we should see our lovely new template in all of its autoprefixed-webpacked glory.
+
+## Customizing Bootstrap
+
+Now that we have a working setup that could have been accomplished by adding a couple CDN tags, you may be asking yourself why? Let's take a look at what we can do. The coolest part about this setup is the ability to modify the bootstrap variables before they are compiled. Let's do that by modifying `web/static/css/pre-bootstrap-customizations.scss`:
+
+```
+$brand-primary: yellow !default;
+```
+
+The page will auto-reload and your retinas will have the pleasure of being burned out by our nice new theme (You can try #03A9F4 for a nice experience).
+
+You can see the full list of variable overrides here: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
+
+For some pre-baked themes, you can go to the [Bootswatch v4 page](https://bootswatch.com/4-alpha/) and under the Download dropdown for each theme, you can copy the `_variables.scss` file and place it in your pre-customizations file.
+
+Another cool feature is that your `app.scss` now runs in the context of bootstrap so you can use bootstrap's media query mixins like:
+
+```
+@include media-breakpoint-down(sm) {
+  .jumbotron {
+    display: none;
+  }
+}
+```
+
+Now the jumbotron won't display on mobile!
+
+This post is just touching the surface of what you can do with this configuration. This is now my ideal bootstrap setup and I can't wait for bootstrap v4 to become stable so everyone can embrace the new [flexbox](http://flexboxfroggy.com/)
